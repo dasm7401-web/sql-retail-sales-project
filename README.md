@@ -6,14 +6,18 @@
 **Level**: Beginner  
 **Database**: `p1_retail_db`
 
-This project is designed to demonstrate SQL skills and techniques typically used by data analysts to explore, clean, and analyze retail sales data. The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering specific business questions through SQL queries. This project is ideal for those who are starting their journey in data analysis and want to build a solid foundation in SQL.
+This is a Retail Sales Analysis SQL project using a dataset called retail_sales1. The project walks through the full data analysis pipeline: database creation, table setup, data cleaning, exploration, and business problem solving with SQL queries.
+
+The dataset captures transactional retail data with fields like transactions_id, sale_date, sale_time, customer_id, gender, age, category, quantiy, price_per_unit, cogs, and total_sale.
 
 ## Objectives
 
-1. **Set up a retail sales database**: Create and populate a retail sales database with the provided sales data.
-2. **Data Cleaning**: Identify and remove any records with missing or null values.
-3. **Exploratory Data Analysis (EDA)**: Perform basic exploratory data analysis to understand the dataset.
-4. **Business Analysis**: Use SQL to answer specific business questions and derive insights from the sales data.
+The main goals of this project are:
+
+Data Preparation: Create a structured database and clean the raw sales data by handling NULL values
+Data Exploration: Understand key metrics like total sales, unique customers, and product categories
+Business Insights: Answer 10 specific business questions to derive actionable insights about sales performance, customer behavior, and trends
+Skill Demonstration: Showcase proficiency in SQL including DDL, DML, aggregations, window functions, CTEs, and date/time functions.
 
 ## Project Structure
 
@@ -189,20 +193,26 @@ GROUP BY shift
 
 ## Findings
 
-- **Customer Demographics**: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing and Beauty.
-- **High-Value Transactions**: Several transactions had a total sale amount greater than 1000, indicating premium purchases.
-- **Sales Trends**: Monthly analysis shows variations in sales, helping identify peak seasons.
-- **Customer Insights**: The analysis identifies the top-spending customers and the most popular product categories.
+Based on the 10 business queries written, here are the types of insights this project extracts:
 
-## Reports
-
-- **Sales Summary**: A detailed report summarizing total sales, customer demographics, and category performance.
-- **Trend Analysis**: Insights into sales trends across different months and shifts.
-- **Customer Insights**: Reports on top customers and unique customer counts per category.
+Date-specific Performance: Query Q1 filters all sales for 2022-11-05 to analyze single-day performance
+Category + Time Filtering: Q2 finds high-quantity Clothing sales in Nov 2022 with quantiy >= 4
+Category Revenue: Q3 calculates SUM(total_sale) and order count per category to identify top revenue drivers
+Customer Demographics: Q4 finds AVG(age) of Beauty category customers for targeted marketing
+High-Value Transactions: Q5 flags all transactions where total_sale > 1000 for VIP analysis
+Gender-Category Trends: Q6 counts transactions by gender in each category to spot buying patterns
+Seasonal Trends: Q7 uses EXTRACT() + RANK() window function to find the best selling month each year
+Top Customers: Q8 ranks top 5 customers by SUM(total_sale) for loyalty programs
+Category Reach: Q9 counts DISTINCT customer_id per category to measure customer base breadth
+Time-of-Day Analysis: Q10 uses a CASE statement + CTE to group sales into Morning <12, Afternoon 12-17, Evening >17 shifts and count orders
 
 ## Conclusion
 
-This project serves as a comprehensive introduction to SQL for data analysts, covering database setup, data cleaning, exploratory data analysis, and business-driven SQL queries. The findings from this project can help drive business decisions by understanding sales patterns, customer behavior, and product performance.
+This project demonstrates end-to-end SQL data analysis for retail. Starting from raw data, it establishes a clean, queryable dataset and uses it to answer practical business questions.
+
+Technical wins: You’ve covered data cleaning, aggregations, joins-free analysis, date/time extraction, window functions with RANK(), and CTEs for shift analysis.
+
+Business value: The queries directly support decisions around inventory planning, customer segmentation, marketing timing, and identifying high-value customers. The structure makes it easy to scale — just swap in new data and re-run the analysis.
 
 ## How to Use
 
